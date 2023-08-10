@@ -22,6 +22,7 @@
 		F1FA6F5A2A84EA1A0049D05A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C724562A6ED958005F65D6 /* AppDelegate.swift */; };
 		F1FA6F5B2A84EA1A0049D05A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C724582A6ED958005F65D6 /* SceneDelegate.swift */; };
 		F1FA6F6A2A84EA6A0049D05A /* HomeCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FA6F692A84EA6A0049D05A /* HomeCoordinatorTests.swift */; };
+		F1FA6F6C2A84EAD80049D05A /* HomeScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FA6F6B2A84EAD80049D05A /* HomeScreenBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		F1C724912A6FE845005F65D6 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F1FA6F602A84EA610049D05A /* TestingCoordinatorsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestingCoordinatorsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FA6F692A84EA6A0049D05A /* HomeCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorTests.swift; sourceTree = "<group>"; };
+		F1FA6F6B2A84EAD80049D05A /* HomeScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				F1C724772A6FE17E005F65D6 /* HomeCoordinator.swift */,
+				F1FA6F6B2A84EAD80049D05A /* HomeScreenBuilder.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				F1C724932A6FE845005F65D6 /* SecondViewController.swift in Sources */,
 				F1C724752A6EDAD7005F65D6 /* FirstViewController.swift in Sources */,
 				F1C724782A6FE17E005F65D6 /* HomeCoordinator.swift in Sources */,
+				F1FA6F6C2A84EAD80049D05A /* HomeScreenBuilder.swift in Sources */,
 				F1C7245B2A6ED958005F65D6 /* FirstViewModel.swift in Sources */,
 				F1FA6F552A84E5920049D05A /* NSLayoutConstraint+Extensions.swift in Sources */,
 				F1FA6F572A84E5920049D05A /* UIButton.swift in Sources */,

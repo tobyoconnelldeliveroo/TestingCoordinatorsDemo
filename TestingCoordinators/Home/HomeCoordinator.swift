@@ -1,15 +1,20 @@
 import UIKit
 
 class HomeCoordinator {
-    weak var navigationController: UINavigationController?
+    private weak var navigationController: UINavigationController?
+    private let screenBuilder: HomeScreenBuilding
     
-    init(navigationController: UINavigationController?) {
+    init(
+        navigationController: UINavigationController?,
+        screenBuilder: HomeScreenBuilding = HomeScreenBuilder()
+    ) {
         self.navigationController = navigationController
+        self.screenBuilder = screenBuilder
     }
     
     func start() {
         let viewModel = FirstViewModel(continueTapped: goToSecond)
-        let viewController = FirstViewController(viewModel: viewModel)
+        let viewController = screenBuilder.buildFirstScreen(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: false)
     }
     
@@ -20,7 +25,7 @@ class HomeCoordinator {
                 self.navigationController?.popViewController(animated: true)
             }
         )
-        let viewController = SecondViewController(viewModel: viewModel)
+        let viewController = screenBuilder.buildSecondScreen(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
