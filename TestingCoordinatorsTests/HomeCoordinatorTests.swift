@@ -3,9 +3,14 @@ import XCTest
 
 class SpyNavigationController: UINavigationController {
     var spyPushViewController: ((_ viewController: UIViewController, _ animated: Bool) -> Void)!
-    
+    var spyPopViewController: ((_ animated: Bool) -> UIViewController?)!
+
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         spyPushViewController(viewController, animated)
+    }
+    
+    override func popViewController(animated: Bool) -> UIViewController? {
+        spyPopViewController(animated)
     }
 }
 
@@ -88,6 +93,38 @@ final class TestingCoordinatorsTests: XCTestCase {
         
         // Then
         XCTAssertEqual(viewController, mockSecondScreen)
+        XCTAssertTrue(animated)
+    }
+    
+    func testGoBackToFirst() {
+        // Given
+        var firstViewModel: FirstViewModel!
+        var secondViewModel: SecondViewModel!
+        var animated: Bool!
+        
+        navigationController.spyPushViewController = { _, _ in }
+        
+        navigationController.spyPopViewController = { spiedAnimated in
+            animated = spiedAnimated
+            return UIViewController()
+        }
+        
+        screenBuilder.mockBuildFirstScreen = { mockViewModel in
+            firstViewModel = mockViewModel
+            return UIViewController()
+        }
+        
+        screenBuilder.mockBuildSecondScreen = { mockViewModel in
+            secondViewModel = mockViewModel
+            return UIViewController()
+        }
+        
+        // When
+        coordinator.start()
+        firstViewModel.continueTapped()
+        secondViewModel.doneTapped()
+        
+        // Then
         XCTAssertTrue(animated)
     }
 }
